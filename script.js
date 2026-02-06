@@ -104,6 +104,34 @@ window.addEventListener('resize', () => {
     }
 });
 
+// Create blood drips dynamically
+function createBloodDrip() {
+    const drip = document.createElement('div');
+    drip.className = 'blood-drip';
+    drip.style.left = Math.random() * 100 + '%';
+    drip.style.animationDuration = (3 + Math.random() * 4) + 's';
+    drip.style.animationDelay = Math.random() * 5 + 's';
+    drip.style.width = (1 + Math.random() * 3) + 'px';
+    document.body.appendChild(drip);
+    
+    // Remove drip after animation
+    setTimeout(() => {
+        drip.remove();
+    }, 10000);
+}
+
+// Create multiple blood drips
+setInterval(() => {
+    if (Math.random() > 0.7) {
+        createBloodDrip();
+    }
+}, 800);
+
+// Initialize some drips
+for (let i = 0; i < 15; i++) {
+    setTimeout(() => createBloodDrip(), i * 500);
+}
+
 // Optional: Add random glitch effect to canvas
 function randomGlitch() {
     if (Math.random() > 0.98) {
