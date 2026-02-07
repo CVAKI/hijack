@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     background-color: #000;
     overflow: hidden;
@@ -11,7 +10,6 @@ body {
     height: 100vh;
     position: relative;
 }
-
 /* Blood draining effect overlay */
 .blood-overlay {
     position: fixed;
@@ -32,7 +30,6 @@ body {
     pointer-events: none;
     animation: bloodDrain 8s ease-in-out infinite;
 }
-
 @keyframes bloodDrain {
     0% {
         height: 0;
@@ -51,7 +48,6 @@ body {
         opacity: 0;
     }
 }
-
 /* Blood drips */
 .blood-drip {
     position: fixed;
@@ -68,7 +64,6 @@ body {
     pointer-events: none;
     animation: drip linear infinite;
 }
-
 @keyframes drip {
     0% {
         top: 0;
@@ -84,7 +79,6 @@ body {
         opacity: 0;
     }
 }
-
 #matrix-canvas {
     position: fixed;
     top: 0;
@@ -93,7 +87,6 @@ body {
     height: 100%;
     z-index: 1;
 }
-
 .center-image {
     position: fixed;
     top: 50%;
@@ -101,7 +94,6 @@ body {
     transform: translate(-50%, -50%);
     z-index: 2;
 }
-
 #glitch-image {
     width: 500px;
     height: 500px;
@@ -109,7 +101,6 @@ body {
     animation: glitch 3s infinite;
     filter: drop-shadow(0 0 20px #00ff00);
 }
-
 /* Glitch Effect Animation */
 @keyframes glitch {
     0% {
@@ -145,7 +136,6 @@ body {
         filter: drop-shadow(0 0 20px #00ff00);
     }
 }
-
 /* Additional glitch scanline effect */
 .center-image::before {
     content: '';
@@ -163,7 +153,6 @@ body {
     animation: scanline 8s linear infinite;
     z-index: 3;
 }
-
 @keyframes scanline {
     0% {
         transform: translateY(0);
@@ -172,7 +161,6 @@ body {
         transform: translateY(500px);
     }
 }
-
 /* RGB Split Effect */
 .center-image::after {
     content: '';
@@ -187,7 +175,6 @@ body {
     animation: rgb-split 2s infinite;
     z-index: 3;
 }
-
 @keyframes rgb-split {
     0%, 100% {
         opacity: 0;
@@ -198,4 +185,23 @@ body {
     20%, 40%, 60%, 80% {
         opacity: 0;
     }
+}
+
+/* Invisible button in bottom right corner */
+#secret-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    opacity: 0;
+    z-index: 9999;
+    cursor: default;
+    display: block;
+}
+
+/* Optional: Add a very subtle hint on hover (remove if you want it completely invisible) */
+#secret-button:active {
+    background: rgba(255, 255, 255, 0.01);
 }
