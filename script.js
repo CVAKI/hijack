@@ -29,7 +29,7 @@ let intensityMode = false;
 setInterval(() => {
     if (Math.random() > 0.5) { // 50% chance - much more frequent!
         isGlitching = true;
-        glitchColor = Math.random() > 0.6 ? '#F00' : (Math.random() > 0.5 ? '#0F0' : '#FF00FF'); // Red, Green, or Magenta
+        glitchColor = Math.random() > 0.6 ? '#0F0' : (Math.random() > 0.5 ? '#0FF' : '#FF00FF'); // Green, Cyan, or Magenta
         glitchOffset.x = (Math.random() - 0.5) * 20; // Increased offset
         glitchOffset.y = (Math.random() - 0.5) * 20;
         
@@ -81,7 +81,7 @@ function drawMatrix() {
         
         // Random color variation during glitch - MORE CHAOTIC
         if (isGlitching && Math.random() > 0.5) {
-            const colors = ['#F00', '#0F0', '#FF00FF', '#00FFFF', '#FFFF00', '#FFF'];
+            const colors = ['#0F0', '#0FF', '#FF00FF', '#00FFFF', '#FFFF00', '#FFF'];
             ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
         } else if (!isGlitching) {
             ctx.fillStyle = '#0F0';
@@ -153,7 +153,7 @@ for (let i = 0; i < 30; i++) {
 function randomGlitch() {
     // More frequent glitch blocks
     if (Math.random() > 0.92) {
-        ctx.fillStyle = `rgba(255, 0, 0, ${Math.random() * 0.3})`;
+        ctx.fillStyle = `rgba(0, 255, 0, ${Math.random() * 0.3})`;
         ctx.fillRect(
             Math.random() * canvas.width,
             Math.random() * canvas.height,
@@ -187,8 +187,8 @@ setInterval(() => {
 // Intense glitch effect occasionally - MORE DRAMATIC
 setInterval(() => {
     if (Math.random() > 0.7) { // More frequent
-        // Flash the entire screen red briefly - STRONGER
-        ctx.fillStyle = `rgba(255, 0, 0, ${0.15 + Math.random() * 0.15})`;
+        // Flash the entire screen green briefly - STRONGER
+        ctx.fillStyle = `rgba(0, 255, 0, ${0.15 + Math.random() * 0.15})`;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         // Horizontal displacement - MORE CHAOTIC
@@ -253,7 +253,7 @@ function chromaticAberration() {
     if (Math.random() > 0.90) {
         const offset = Math.random() * 10;
         canvas.style.filter = `
-            drop-shadow(${offset}px 0 0 red) 
+            drop-shadow(${offset}px 0 0 lime) 
             drop-shadow(-${offset}px 0 0 cyan)
         `;
         
@@ -274,7 +274,7 @@ function createBloodSplatter() {
         splatter.style.top = Math.random() * 100 + '%';
         splatter.style.width = (20 + Math.random() * 60) + 'px';
         splatter.style.height = (20 + Math.random() * 60) + 'px';
-        splatter.style.background = `radial-gradient(circle, rgba(139, 0, 0, 0.8), rgba(80, 0, 0, 0.3))`;
+        splatter.style.background = `radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(10, 10, 10, 0.3))`;
         splatter.style.borderRadius = '50%';
         splatter.style.filter = 'blur(2px)';
         splatter.style.zIndex = '15';
@@ -291,7 +291,7 @@ function createBloodSplatter() {
 
 setInterval(createBloodSplatter, 500);
 
-// Pulsating red vignette
+// Pulsating dark vignette
 let vignetteIntensity = 0;
 let vignetteDirection = 1;
 
@@ -306,7 +306,7 @@ function pulsateVignette() {
         vignetteDirection = 1;
     }
     
-    canvas.style.boxShadow = `inset 0 0 ${100 + vignetteIntensity * 200}px rgba(139, 0, 0, ${vignetteIntensity * 0.5})`;
+    canvas.style.boxShadow = `inset 0 0 ${100 + vignetteIntensity * 200}px rgba(0, 0, 0, ${vignetteIntensity * 0.5})`;
 }
 
 setInterval(pulsateVignette, 50);
@@ -316,7 +316,7 @@ function audioDistortion() {
     if (Math.random() > 0.94) {
         for (let i = 0; i < 5; i++) {
             const y = Math.random() * canvas.height;
-            ctx.fillStyle = `rgba(255, 0, 0, ${Math.random() * 0.3})`;
+            ctx.fillStyle = `rgba(0, 255, 0, ${Math.random() * 0.3})`;
             ctx.fillRect(0, y, canvas.width, 2 + Math.random() * 5);
         }
     }
